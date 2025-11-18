@@ -21,7 +21,7 @@ documents=[
 
 # embeddings 
 # beside teh chromaDB we can also stoe it to the pincode ..where we can visulaize the data but in chroma db we cant'
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2") # ADD KIYA
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2") 
 
 text_splitter=RecursiveCharacterTextSplitter(chunk_size=200,chunk_overlap=50)
 docs=text_splitter.split_documents(documents)
