@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings 
-from langchain_community.chains import RetrievalQA
+from langchain.chains import RetrievalQA
 from langchain.chains.question_answering import load_qa_chain
 
 # NEW import for HuggingFace LLM
@@ -42,3 +42,7 @@ query = "What are my meeting notes?"
 answer = rag.run(query)
 
 print("Answer:", answer)
+
+def get_response(query):
+    docs = retriever.get_relevant_documents(query)
+    return qa_chain.run(input_documents=docs, question=query)
